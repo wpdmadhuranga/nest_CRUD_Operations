@@ -2,9 +2,12 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
-  imports: [UsersModule],
+  imports: [ MongooseModule.forRoot(
+      'mongodb+srv://wpdmadhuranga:F5lMctEOP2aXITD6@cluster0.abcde.mongodb.net/nest_crud?retryWrites=true&w=majority'
+    ),UsersModule],
   controllers: [AppController],
   providers: [AppService],
 })
