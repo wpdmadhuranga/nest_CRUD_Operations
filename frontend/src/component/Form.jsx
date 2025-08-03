@@ -1,8 +1,9 @@
-import axios from "axios";
-import React, { useState, useNavigate } from "react";
-import { Navigate } from "react-router-dom";
+import axios from "../api/axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Form = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -20,7 +21,7 @@ export const Form = () => {
     try {
       await axios.post("api/auth/register", formData);
       alert("Registered Succesfully");
-      Navigate("/home");
+      navigate("/");
     } catch (error) {
       const message = error.response?.data?.message || "Registration failed.";
       alert(message);
@@ -57,29 +58,29 @@ export const Form = () => {
                   />
                 </div>
               </div>
-              <lable
-                htmlFor="Email"
+              <label
+                htmlFor="email"
                 className="block text-sm/6 font-medium text-gray-900 text-left"
               >
                 Email
-              </lable>
+              </label>
               <div className="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
                 <div className="shrink-0 text-base text-gray-500 select-none sm:text-sm/6"></div>
                 <input
-                  id="username"
+                  id="email"
                   type="text"
-                  name="username"
+                  name="email"
                   onChange={handleChange}
                   placeholder="Dinusha@gmail.com"
                   className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
                 />
               </div>
-              <lable
-                htmlFor="Address"
+              <label
+                htmlFor="address"
                 className="block text-sm/6 font-medium text-gray-900 text-left"
               >
                 Address
-              </lable>
+              </label>
               <div className="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
                 <div className="shrink-0 text-base text-gray-500 select-none sm:text-sm/6"></div>
                 <input
@@ -91,18 +92,18 @@ export const Form = () => {
                   className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
                 />
               </div>
-              <lable
-                htmlFor="Phone Number"
+              <label
+                htmlFor="phonenumber"
                 className="block text-sm/6 font-medium text-gray-900 text-left"
               >
                 Phone Number
-              </lable>
+              </label>
               <div className="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
                 <div className="shrink-0 text-base text-gray-500 select-none sm:text-sm/6"></div>
                 <input
                   id="phonenumber"
                   type="text"
-                  name="phoneNumber"
+                  name="phonenumber"
                   onChange={handleChange}
                   placeholder="(+94) XXXXXXXX"
                   className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"

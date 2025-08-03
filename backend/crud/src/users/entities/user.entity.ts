@@ -5,6 +5,7 @@ export type UserDocument = User & Document;
 
 @Schema({ timestamps: true })
 export class User {
+
   @Prop({ required: true })
   username: string;
 
@@ -16,6 +17,9 @@ export class User {
 
   @Prop({ required: true })
   phonenumber: string;
+
+    @Prop()
+  createdAt?: Date;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
