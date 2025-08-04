@@ -18,7 +18,7 @@ export class User {
   @Prop({ required: true })
   phonenumber: string;
 
-    @Prop()
+  @Prop()
   createdAt?: Date;
 }
 
