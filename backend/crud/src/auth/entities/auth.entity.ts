@@ -1,7 +1,7 @@
 import { Schema,Prop, SchemaFactory } from "@nestjs/mongoose";
-import { User } from "src/users/entities/user.entity";
+import { Document } from 'mongoose';
 
-export type UserSchema = User & Document;
+export type AuthDocument = Auth & Document;
 
 @Schema({ timestamps: true })
 export class Auth {
@@ -15,3 +15,5 @@ export class Auth {
     @Prop({ required: true})
     password: string
 }
+
+export const AuthSchema = SchemaFactory.createForClass(Auth);

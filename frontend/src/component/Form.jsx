@@ -19,7 +19,7 @@ export const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("api/auth/register", formData);
+      await axios.post("api/user/register", formData);
       alert("Registered Succesfully");
       navigate("/");
     } catch (error) {

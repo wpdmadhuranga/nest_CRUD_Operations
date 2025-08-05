@@ -19,12 +19,12 @@ export const Register = () => {
     e.preventDefault();
     try {
       await axios.post("/api/auth/register", formData);
-      console.log("Registered Successfully!!");
-      navigate("");
-    } catch {
+      alert("Registered Successfully!!");
+      navigate("/");
+    } catch (error) {
       const message = error.response?.data.message || "Registration faild";
       alert(message);
-      console.log("Registration Faild !!");
+      console.log("Registration Faild !!", message);
     }
   };
   return (
